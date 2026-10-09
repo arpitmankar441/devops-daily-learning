@@ -1,0 +1,148 @@
+# Day 12: Managing Users and Permissions in Linux
+
+## **Link Count Basics**
+
+### Overview
+
+In Linux, the "link count" refers to the number of references (links) to a particular inode. An inode is a data structure that stores metadata about a file or directory.
+
+### Key Points
+
+1. **Files and Hard Links**: Each file starts with a link count of 1, representing its own name as a reference to its inode.
+2. **Directories**: Directories typically have a link count greater than 2 due to `.` (current directory), `..` (parent directory), and subdirectory entries.
+
+### Practical Example
+
+```bash
+# Check the link count of files and directories
+ls -l
+```
+
+**Output:**
+
+```text
+drwxr-xr-x  2 user group 4096 Dec 18 10:00 example-dir
+-rw-r--r--  1 user group   45 Dec 18 10:00 example-file
+```
+
+In the example:
+
+* The directory `example-dir` has a link count of `2`.
+* The file `example-file` has a link count of `1`.
+
+## **Link Count for Directories**
+
+1. **Base Count**: A directory always starts with at least two links: `.` (itself) and `..` (parent).
+2. **Subdirectories**: Each subdirectory increases the parent directory’s link count by 1.
+
+### Example
+
+```bash
+mkdir dir1
+mkdir dir1/subdir1
+ls -ld dir1
+```
+
+**Output:**
+
+```text
+drwxr-xr-x  3 user group 4096 Dec 18 10:00 dir1
+```
+
+**Explanation:** `dir1` has three links—`.` (itself), `..` (parent), and `subdir1`.
+
+## **Link Count for Files**
+
+1. **Hard Links**: Creating additional names for the same file increases the link count.
+
+### Example
+
+```bash
+ln file1 file2
+ls -l
+```
+
+**Output:**
+
+```text
+-rw-r--r--  2 user group 4096 Dec 18 10:00 file1
+-rw-r--r--  2 user group 4096 Dec 18 10:00 file2
+```
+
+**Explanation:** Both `file1` and `file2` reference the same inode, increasing the link count to 2.
+
+## **Comparing Hard and Soft Links**
+
+### Hard Links
+
+* Point to the same inode.
+* Cannot span across different file systems.
+* Cannot link to directories.
+
+### Soft Links (Symbolic Links)
+
+* Act as a pointer to the original file.
+* Can span across file systems.
+* Can link to directories.
+
+### Practical Example
+
+```bash
+# Hard Link
+ln original hardlink
+ls -li
+
+# Soft Link
+ln -s original softlink
+ls -li
+```
+
+## **Importance of sudo for Privilege Escalation**
+
+### What is sudo?
+
+* `sudo` allows a permitted user to execute commands as another user, typically root.
+* It provides limited and controlled privilege escalation.
+
+### Why Use sudo?
+
+1. Prevent accidental system damage by restricting root access.
+2. Provides an audit trail of user activities.
+3. Offers flexibility for assigning specific command permissions.
+
+### Example
+
+```bash
+# Running a privileged command
+sudo apt update
+```
+
+## **Difference Between Regular User Commands and sudo Commands**
+
+* Regular commands operate within the user's permission scope.
+* `sudo` commands run with elevated privileges, allowing access to restricted operations.
+
+### Example
+
+```bash
+# Regular user command
+ls /root
+
+# sudo command
+sudo ls /root
+```
+
+**Output:**
+
+```text
+Permission denied
+# With sudo
+<content of /root directory>
+```
+
+### Example
+
+```bash
+# Add user to sudo group
+sudo usermod -aG sudo username
+```
