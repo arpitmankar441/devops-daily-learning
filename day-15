@@ -1,0 +1,234 @@
+# Day 15: Automation and Data Handling in Linux
+
+## 1. Introduction to Search and Filter Utilities
+
+Linux provides powerful utilities to search, filter, sort, and manage data efficiently. These commands are useful for file management, log analysis, text processing, and system administration.
+
+### Importance of Searching and Filtering
+
+* Saves time by automating data retrieval.
+* Helps manage large files and directories.
+* Makes log analysis easier.
+* Supports Linux shell scripting and automation.
+
+## 2. The `grep` Command
+
+**Purpose:** Searches for specific patterns in files or input streams.
+
+**Syntax:**
+
+```bash
+grep [OPTIONS] PATTERN [FILE]
+```
+
+### Common Options
+
+| Option | Description                       |
+| ------ | --------------------------------- |
+| `-i`   | Ignore case differences           |
+| `-v`   | Display lines that do not match   |
+| `-n`   | Display line numbers              |
+| `-r`   | Search recursively in directories |
+
+### Examples
+
+```bash
+# Search for lines containing "error"
+grep 'error' system.log
+
+# Search without considering case
+grep -i 'error' system.log
+
+# Display matching lines with line numbers
+grep -n 'error' system.log
+
+# Display lines that do not contain "error"
+grep -v 'error' system.log
+
+# Search recursively inside /var/log
+grep -r 'error' /var/log
+```
+
+## 3. The `cat` Command
+
+**Purpose:** Displays file contents and combines multiple files.
+
+**Syntax:**
+
+```bash
+cat [OPTIONS] [FILE]
+```
+
+### Examples
+
+```bash
+# Display file contents
+cat example.txt
+
+# Display the contents of multiple files
+cat file1.txt file2.txt
+
+# Combine two files into a third file
+cat file1.txt file2.txt > combined.txt
+```
+
+## 4. The `sort` Command
+
+**Purpose:** Sorts lines alphabetically or numerically.
+
+**Syntax:**
+
+```bash
+sort [OPTIONS] [FILE]
+```
+
+### Common Options
+
+| Option | Description                         |
+| ------ | ----------------------------------- |
+| `-r`   | Sort in reverse order               |
+| `-n`   | Sort numerically                    |
+| `-k`   | Sort using a specified field or key |
+
+### Examples
+
+```bash
+# Sort names alphabetically
+sort names.txt
+
+# Sort numbers numerically
+sort -n numbers.txt
+
+# Sort in reverse order
+sort -r names.txt
+
+# Sort by the second field
+sort -k2 data.txt
+```
+
+## 5. The `uniq` Command
+
+**Purpose:** Removes or identifies repeated adjacent lines. It is commonly used with `sort` to handle duplicates throughout a file.
+
+**Syntax:**
+
+```bash
+uniq [OPTIONS] [FILE]
+```
+
+### Common Options
+
+| Option | Description                             |
+| ------ | --------------------------------------- |
+| `-c`   | Count occurrences of each adjacent line |
+| `-d`   | Display only repeated lines             |
+| `-u`   | Display only lines that occur once      |
+
+### Examples
+
+```bash
+# Remove duplicate lines after sorting
+sort input.txt | uniq
+
+# Count occurrences of each line
+sort input.txt | uniq -c
+
+# Display only duplicate lines
+sort input.txt | uniq -d
+
+# Display only unique-occurrence lines
+sort input.txt | uniq -u
+```
+
+## 6. The `find` Command
+
+**Purpose:** Searches for files and directories based on their names, types, sizes, and modification times.
+
+**Syntax:**
+
+```bash
+find [PATH] [OPTIONS] [EXPRESSION]
+```
+
+### Common Options
+
+| Option    | Description                     |
+| --------- | ------------------------------- |
+| `-name`   | Search by case-sensitive name   |
+| `-iname`  | Search by case-insensitive name |
+| `-type f` | Search for regular files        |
+| `-type d` | Search for directories          |
+| `-size`   | Search by file size             |
+| `-mtime`  | Search by modification time     |
+
+### Examples
+
+```bash
+# Find all .txt files in the current directory and subdirectories
+find . -type f -name "*.txt"
+
+# Find files with names regardless of case
+find . -type f -iname "*.txt"
+
+# Find only directories
+find . -type d
+
+# Find files larger than approximately 1 MB
+find /home -type f -size +1M
+
+# Find files modified within the last 7 days
+find /var/log -type f -mtime -7
+```
+
+## 7. Practical Exercises
+
+### Exercise 1: Search for the word "error" in /var/log
+
+```bash
+grep -r 'error' /var/log
+```
+
+### Exercise 2: Find .log files modified in the last 2 days
+
+```bash
+find /var/log -type f -name "*.log" -mtime -2
+```
+
+### Exercise 3: Sort names alphabetically and remove duplicates
+
+```bash
+sort names.txt | uniq
+```
+
+### Exercise 4: Count duplicate entries
+
+```bash
+sort names.txt | uniq -c
+```
+
+### Exercise 5: Find all directories inside the current directory
+
+```bash
+find . -type d
+```
+
+### Exercise 6: Sort numbers in ascending order
+
+```bash
+sort -n numbers.txt
+```
+
+## 8. Important Concepts Learned
+
+* `grep`: Searches for patterns in text.
+* `cat`: Displays or combines file contents.
+* `sort`: Sorts lines alphabetically or numerically.
+* `uniq`: Identifies or removes adjacent duplicate lines.
+* `find`: Locates files and directories using different criteria.
+* `|` (pipe): Sends the output of one command as input to another command.
+
+## 9. Conclusion
+
+Today, I learned how to use Linux search and filtering utilities to locate files, analyze log data, sort information, and remove duplicate entries. These commands are essential for Linux administration, shell scripting, DevOps, and automation tasks.
+
+**Day 15 completed: Automation and Data Handling in Linux.**
