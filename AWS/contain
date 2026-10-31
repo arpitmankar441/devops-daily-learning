@@ -1,0 +1,2219 @@
+# AWS & DevOps Training – Complete Learning Materials
+
+Welcome to the **AWS & DevOps Training Program**.
+
+This repository contains structured learning materials for students who want to build a strong foundation in Cloud Computing, AWS, Linux Administration, and DevOps.
+
+The training follows a practical, beginner-friendly approach. Each topic includes:
+- Simple explanations and definitions.
+- Real-world examples.
+- Important technical concepts.
+- Step-by-step practical demonstrations.
+- Linux and AWS commands.
+- Hands-on exercises.
+- Key takeaways.
+
+The objective is to help students understand cloud infrastructure and gain practical knowledge required for entry-level Cloud and DevOps roles.
+
+---
+
+# Course Curriculum
+
+| Module | Topics |
+|---|---|
+| 01 | Virtualization and Cloud Computing |
+| 02 | AWS Management Console, Regions, AZs and EC2 |
+| 03 | Security Groups, SSH and RDP |
+| 04 | Linux and Windows EC2 Remote Access |
+| 05 | NGINX and Apache Web Server Deployment |
+| 06 | EC2 Instance Types, AMI and Launch Templates |
+| 07 | EC2 Purchasing Options |
+| 08 | EBS Volumes and Storage Management |
+| 09 | EBS Snapshots and Backup Automation |
+| 10 | NFS and Network File Sharing |
+| 11 | Amazon EFS Creation and Mounting |
+| 12 | AWS Practical Exercises and Commands |
+
+---
+
+# MODULE 01: INTRODUCTION TO VIRTUALIZATION AND CLOUD COMPUTING
+
+## 1.1 What is Virtualization?
+
+**Definition:**
+
+Virtualization is a technology that allows us to create multiple virtual machines (VMs) on a single physical computer.
+
+Each virtual machine can run its own operating system and applications independently.
+
+### Real-Time Example
+
+Imagine a company has one powerful physical server.
+
+Instead of purchasing three separate physical servers, the company creates three virtual machines on the same physical server.
+
+- VM 1 – Ubuntu Linux
+- VM 2 – Windows Server
+- VM 3 – CentOS Linux
+
+All three virtual machines operate independently using the resources of the same physical machine.
+
+### Types of Virtualization
+
+**1. Server Virtualization**
+
+Running multiple virtual servers on one physical server.
+
+**2. Storage Virtualization**
+
+Combining multiple storage devices into a single logical storage system.
+
+**3. Network Virtualization**
+
+Creating virtual networks using software instead of depending entirely on physical network devices.
+
+### Benefits of Virtualization
+
+1. Better hardware utilization.
+2. Reduced infrastructure costs.
+3. Easy resource management.
+4. Faster server deployment.
+5. Improved scalability.
+6. Isolation between virtual machines.
+
+### What is a Hypervisor?
+
+A hypervisor is software or firmware that creates and manages virtual machines.
+
+It allocates physical resources such as CPU, RAM and storage to virtual machines.
+
+**Popular Hypervisors:**
+- VMware ESXi
+- Oracle VirtualBox
+- Microsoft Hyper-V
+- KVM
+- Xen
+
+### Types of Hypervisors
+
+| Type | Description | Examples |
+|---|---|---|
+| Type 1 | Runs directly on physical hardware | VMware ESXi, Hyper-V, KVM |
+| Type 2 | Runs on top of an existing operating system | VirtualBox, VMware Workstation |
+
+### Simple Explanation
+
+Think of a physical server as a large apartment building.
+
+Each virtual machine is a separate apartment, and each apartment can have its own tenant and facilities.
+
+---
+
+## 1.2 Virtualization vs Cloud Computing
+
+Virtualization and cloud computing are related, but they are not the same.
+
+| Feature | Virtualization | Cloud Computing |
+|---|---|---|
+| Meaning | Creates virtual resources | Delivers computing resources as services |
+| Infrastructure | Physical hardware is virtualized | Resources are provided by cloud platforms |
+| Scalability | Depends on available hardware | Can scale using cloud resources |
+| Management | Often managed by infrastructure teams | Managed through cloud consoles and APIs |
+| Example | VMware, VirtualBox | AWS, Azure, GCP |
+
+**Real-Time Example:**
+
+Virtualization is like owning an apartment building and dividing it into separate apartments.
+
+Cloud computing is like renting an apartment whenever you need it and paying according to the service.
+
+**Important:** Cloud computing can use virtualization, but cloud computing also includes networking, storage, automation, security and managed services.
+
+---
+
+## 1.3 Cloud Service Models – IaaS, PaaS and SaaS
+
+Cloud computing provides three major service models.
+
+### 1. Infrastructure as a Service (IaaS)
+
+IaaS provides virtual infrastructure such as:
+
+- Virtual Machines
+- Storage
+- Networking
+- Computing Resources
+
+**Examples:**
+- AWS EC2
+- Azure Virtual Machines
+- Google Compute Engine
+
+**Practical Example:**
+
+Launch an Ubuntu EC2 instance on AWS and install NGINX to host a website.
+
+You manage the operating system, applications and configurations.
+
+### 2. Platform as a Service (PaaS)
+
+PaaS provides a platform to develop, deploy and manage applications without managing the underlying server infrastructure.
+
+**Examples:**
+- AWS Elastic Beanstalk
+- Google App Engine
+- Azure App Service
+
+**Practical Example:**
+
+Deploy a Python web application using AWS Elastic Beanstalk without manually configuring the EC2 infrastructure.
+
+### 3. Software as a Service (SaaS)
+
+SaaS provides ready-to-use software through the internet.
+
+**Examples:**
+- Gmail
+- Google Docs
+- Salesforce
+- Microsoft 365
+
+**Practical Example:**
+
+Use Gmail to send and receive emails without installing or managing an email server.
+
+### Comparison
+
+| IaaS | PaaS | SaaS |
+|---|---|---|
+| Infrastructure | Development platform | Ready-to-use software |
+| More control | Less infrastructure management | Minimal technical management |
+| AWS EC2 | Elastic Beanstalk | Gmail |
+
+### Easy Way to Remember
+
+- IaaS – Rent infrastructure.
+- PaaS – Rent a development platform.
+- SaaS – Use ready-made software.
+
+---
+
+## 1.4 AWS Account Creation
+
+Amazon Web Services (AWS) is a cloud computing platform that provides services such as EC2, S3, RDS, IAM and Lambda.
+
+### Steps to Create an AWS Account
+
+**Step 1: Visit AWS**
+
+https://aws.amazon.com/free/
+
+**Step 2: Create an Account**
+
+- Enter your email address.
+- Create a password.
+- Enter an account name.
+
+**Step 3: Select Account Type**
+
+Choose Personal or Professional according to your requirements.
+
+**Step 4: Payment Information**
+
+Provide an accepted payment method and complete the verification process.
+
+**Step 5: Identity Verification**
+
+Verify your mobile number using OTP.
+
+**Step 6: Select Support Plan**
+
+Choose Basic Support if it meets your requirements.
+
+**Step 7: Login**
+
+Open the AWS Management Console.
+
+https://console.aws.amazon.com/
+
+### Important Instructions for Students
+
+- Never share your AWS password.
+- Enable MFA on your root account.
+- Do not use the root account for everyday activities.
+- Create an IAM administrative user for regular administration.
+- Enable billing alerts and monitor your usage.
+- Delete unused resources after practical sessions.
+
+**Important:** AWS Free Tier and free-plan eligibility depend on account creation date, service, usage limits and applicable terms. Not every resource is free.
+
+### Hands-On Practice
+
+1. Create an AWS account.
+2. Login to the AWS Management Console.
+3. Search for EC2.
+4. Search for S3.
+5. Search for RDS.
+6. Search for IAM.
+7. Explore the Billing Dashboard.
+
+### Module 01 – Student Learning Outcomes
+
+After completing this module, students should be able to:
+
+- Explain virtualization.
+- Understand hypervisors.
+- Differentiate virtualization and cloud computing.
+- Explain IaaS, PaaS and SaaS.
+- Understand the basic AWS account setup process.
+
+---
+
+# MODULE 02: AWS MANAGEMENT CONSOLE, REGIONS, AZs AND EC2
+
+## 2.1 What is the AWS Management Console?
+
+The AWS Management Console is a web-based interface used to access and manage AWS services.
+
+Using the console, we can:
+
+- Launch EC2 instances.
+- Create S3 buckets.
+- Configure IAM users and policies.
+- Create databases using RDS.
+- Monitor resource usage.
+- Manage billing and security.
+
+### Important Dashboard Components
+
+**1. Navigation Bar**
+
+Displays account information, selected region and navigation options.
+
+**2. Search Bar**
+
+Helps locate AWS services.
+
+**3. Recently Visited Services**
+
+Displays services accessed recently.
+
+**4. Resource Groups**
+
+Helps organize and manage related AWS resources.
+
+**5. Billing Dashboard**
+
+Helps monitor service usage, estimated costs and billing information.
+
+### Best Practices
+
+- Always check the selected region.
+- Monitor billing regularly.
+- Follow proper resource naming conventions.
+- Delete resources that are no longer required.
+
+---
+
+## 2.2 What is an AWS Region?
+
+An AWS Region is a geographical area where AWS operates its cloud infrastructure.
+
+Examples:
+
+- Mumbai – ap-south-1
+- Singapore – ap-southeast-1
+- N. Virginia – us-east-1
+- Frankfurt – eu-central-1
+
+### Why Do We Need Regions?
+
+1. Reduce application latency.
+2. Meet geographical and regulatory requirements.
+3. Support disaster recovery strategies.
+4. Choose suitable infrastructure locations.
+
+## 2.3 What is an Availability Zone?
+
+An Availability Zone (AZ) is an isolated location within an AWS Region.
+
+Each Region contains multiple Availability Zones.
+
+**Example:**
+
+Mumbai Region:
+
+- ap-south-1a
+- ap-south-1b
+- ap-south-1c
+
+The exact number and available AZs can change.
+
+### Region vs Availability Zone
+
+| Region | Availability Zone |
+|---|---|
+| Geographical area | Isolated location inside a Region |
+| Contains multiple AZs | Belongs to one Region |
+| Used for geographical deployment | Used for high availability |
+| Example: Mumbai | Example: ap-south-1a |
+
+### Real-Time Example
+
+Suppose an application runs on one EC2 instance in Mumbai AZ 1a.
+
+If that AZ experiences an infrastructure failure, the application may become unavailable.
+
+To improve availability, deploy resources across multiple AZs and configure appropriate failover mechanisms.
+
+---
+
+## 2.4 Introduction to Amazon EC2
+
+**EC2 stands for Elastic Compute Cloud.**
+
+Amazon EC2 is a service that allows us to create and manage virtual servers in the AWS cloud.
+
+These virtual servers are called EC2 Instances.
+
+### Why Do We Use EC2?
+
+- Host websites.
+- Deploy applications.
+- Run databases.
+- Perform testing.
+- Run backend services.
+- Configure development environments.
+
+### Important EC2 Features
+
+**1. Scalability**
+
+Increase or decrease computing capacity according to application requirements.
+
+**2. Instance Types**
+
+Choose CPU, memory and networking capacity.
+
+**3. Security**
+
+Use Security Groups and key pairs.
+
+**4. Storage**
+
+Attach EBS volumes for persistent storage.
+
+**5. Flexible Pricing**
+
+Select a suitable purchasing option.
+
+### EC2 Purchasing Options
+
+- On-Demand
+- Reserved Instances
+- Spot Instances
+- Savings Plans
+- Dedicated Hosts
+- Dedicated Instances
+- Capacity Reservations
+
+---
+
+## 2.5 Create Your First Ubuntu EC2 Instance
+
+### Practical Objective
+
+Launch an Ubuntu Linux virtual machine using AWS EC2 and connect to it through SSH.
+
+### Step 1: Open AWS Console
+
+Login to AWS.
+
+Search for EC2.
+
+Open the EC2 Dashboard.
+
+### Step 2: Launch Instance
+
+Click Launch Instance.
+
+### Step 3: Enter Instance Name
+
+Example:
+
+`MyFirstUbuntuServer`
+
+### Step 4: Select AMI
+
+Choose Ubuntu Server LTS.
+
+AMI means Amazon Machine Image.
+
+It contains the information required to launch an EC2 instance.
+
+### Step 5: Select Instance Type
+
+Choose an instance type suitable for the practical and check its pricing.
+
+Example: t3.micro, where available and appropriate.
+
+### Step 6: Create Key Pair
+
+Click Create New Key Pair.
+
+Enter:
+
+- Key Pair Name: my-ubuntu-key
+- Key Pair Type: RSA
+- Private Key Format: .pem
+
+Download the key pair.
+
+**Important:** Never share the private key with anyone.
+
+### Step 7: Configure Network Settings
+
+Create or select a Security Group.
+
+Add the following inbound rule:
+
+| Type | Port | Source |
+|---|---:|---|
+| SSH | 22 | My IP |
+
+### Step 8: Configure Storage
+
+Select the required EBS volume size.
+
+For a basic practical, use an appropriate default configuration.
+
+### Step 9: Launch Instance
+
+Review all settings.
+
+Click Launch Instance.
+
+### Step 10: Connect to EC2
+
+Open the instance details.
+
+Copy the Public IPv4 Address.
+
+Open your terminal and run:
+
+```bash
+chmod 400 my-ubuntu-key.pem
+```
+
+Connect using:
+
+```bash
+ssh -i my-ubuntu-key.pem ubuntu@<PUBLIC-IP>
+```
+
+Replace `<PUBLIC-IP>` with your EC2 public IP address.
+
+### Verify the Connection
+
+Run:
+
+```bash
+whoami
+hostname
+hostname -I
+uptime
+```
+
+### Expected Learning
+
+Students should understand:
+
+- How to launch EC2.
+- How to create a key pair.
+- How to configure a Security Group.
+- How to connect using SSH.
+
+---
+
+# MODULE 03: SECURITY GROUPS, SSH AND RDP
+
+## 3.1 What is a Security Group?
+
+A Security Group is a virtual firewall associated with AWS resources such as EC2 instances.
+
+It controls incoming and outgoing network traffic.
+
+### Two Main Components
+
+**Inbound Rules**
+
+Control traffic coming into an instance.
+
+**Outbound Rules**
+
+Control traffic going out of an instance.
+
+### Important Network Ports
+
+| Service | Port | Purpose |
+|---|---:|---|
+| SSH | 22 | Linux remote access |
+| RDP | 3389 | Windows remote access |
+| HTTP | 80 | Website access |
+| HTTPS | 443 | Secure website access |
+| FTP | 21 | File transfer |
+| DNS | 53 | Domain name resolution |
+| MySQL | 3306 | MySQL database |
+| PostgreSQL | 5432 | PostgreSQL database |
+
+### Example: SSH Security Group Rule
+
+| Setting | Value |
+|---|---|
+| Type | SSH |
+| Protocol | TCP |
+| Port | 22 |
+| Source | My IP |
+
+### Example: RDP Security Group Rule
+
+| Setting | Value |
+|---|---|
+| Type | RDP |
+| Protocol | TCP |
+| Port | 3389 |
+| Source | My IP |
+
+### Security Group Best Practices
+
+- Avoid allowing SSH from 0.0.0.0/0.
+- Avoid allowing RDP from the entire internet.
+- Open only the ports required by your application.
+- Use different Security Groups for different application components.
+- Review inbound and outbound rules regularly.
+
+---
+
+## 3.2 What is SSH?
+
+SSH stands for Secure Shell.
+
+It is a network protocol used to securely connect to remote Linux servers.
+
+### Why Do We Use SSH?
+
+Using SSH, we can:
+
+- Access remote servers.
+- Execute Linux commands.
+- Install software.
+- Manage services.
+- Transfer files.
+- Troubleshoot servers.
+
+### Important SSH Information
+
+| Component | Description |
+|---|---|
+| Protocol | SSH |
+| Default Port | 22 |
+| Key File | .pem |
+| Ubuntu Username | ubuntu |
+| Amazon Linux Username | ec2-user |
+
+### SSH Connection Command
+
+```bash
+ssh -i /path/to/key.pem ubuntu@<PUBLIC-IP>
+```
+
+### Private Key Permission
+
+```bash
+chmod 400 /path/to/key.pem
+```
+
+### File Transfer Using SCP
+
+Copy a file from local machine to EC2:
+
+```bash
+scp -i key.pem file.txt ubuntu@<PUBLIC-IP>:/home/ubuntu/
+```
+
+### Troubleshooting SSH
+
+If SSH connection fails, check:
+
+1. Is the EC2 instance running?
+2. Is the public IP correct?
+3. Is port 22 allowed?
+4. Is your current public IP allowed?
+5. Are you using the correct private key?
+6. Is the correct username being used?
+
+---
+
+## 3.3 Create a Windows EC2 Instance
+
+AWS EC2 also supports Windows Server instances.
+
+### Practical Objective
+
+Launch a Windows Server instance and connect using Remote Desktop Protocol.
+
+### Steps
+
+**Step 1:** Open EC2 Dashboard.
+
+**Step 2:** Click Launch Instance.
+
+**Step 3:** Enter the instance name.
+
+Example: `MyWindowsServer`
+
+**Step 4:** Select Windows Server AMI.
+
+Example: Windows Server 2022 Base, if available.
+
+**Step 5:** Select an appropriate instance type.
+
+**Step 6:** Create or select a key pair.
+
+**Step 7:** Configure Security Group.
+
+Allow:
+
+| Type | Port | Source |
+|---|---:|---|
+| RDP | 3389 | My IP |
+
+**Step 8:** Configure storage.
+
+**Step 9:** Launch the instance.
+
+**Step 10:** Wait until the instance is running and initialization is complete.
+
+### Retrieve Windows Administrator Password
+
+1. Select the Windows instance.
+2. Click Connect.
+3. Select RDP Client.
+4. Click Get Password.
+5. Upload the private key file.
+6. Decrypt the Administrator password.
+
+### Connect Using Remote Desktop
+
+Open Remote Desktop Connection on Windows.
+
+Enter:
+
+- Computer: EC2 Public IP.
+- Username: Administrator.
+- Password: Decrypted password.
+
+Click Connect.
+
+### Important Security Note
+
+Restrict RDP access to your IP address. Do not expose port 3389 publicly.
+
+---
+
+## 3.4 Linux vs Windows Remote Access
+
+| Feature | Linux | Windows |
+|---|---|---|
+| Protocol | SSH | RDP |
+| Default Port | 22 | 3389 |
+| Client | Terminal / PowerShell | Remote Desktop |
+| Authentication | SSH key or configured credentials | Administrator credentials |
+| Common Username | ubuntu / ec2-user | Administrator |
+
+### Student Practical
+
+1. Launch one Ubuntu EC2 instance.
+2. Connect using SSH.
+3. Run basic Linux commands.
+4. Launch one Windows EC2 instance.
+5. Retrieve the Administrator password.
+6. Connect using RDP.
+7. Compare Linux and Windows remote access.
+
+---
+
+# MODULE 04: WEB SERVER DEPLOYMENT USING NGINX AND APACHE
+
+## 4.1 What is a Web Server?
+
+A web server is software that receives HTTP/HTTPS requests from clients and sends back website content.
+
+Popular web servers include:
+
+- NGINX
+- Apache HTTP Server
+- Microsoft IIS
+
+## 4.2 What is NGINX?
+
+NGINX is a high-performance web server that can also work as a reverse proxy, load balancer and HTTP cache.
+
+### Why Do We Use NGINX?
+
+- Hosting websites.
+- Serving static content.
+- Reverse proxy configuration.
+- Load balancing.
+- Handling HTTP requests.
+
+### Practical: Install NGINX on Ubuntu EC2
+
+**Step 1: Update Packages**
+
+```bash
+sudo apt update
+```
+
+**Step 2: Install NGINX**
+
+```bash
+sudo apt install nginx -y
+```
+
+**Step 3: Start NGINX**
+
+```bash
+sudo systemctl start nginx
+```
+
+**Step 4: Enable NGINX**
+
+```bash
+sudo systemctl enable nginx
+```
+
+**Step 5: Check Status**
+
+```bash
+sudo systemctl status nginx
+```
+
+### Step 6: Configure Security Group
+
+Add an inbound rule:
+
+| Type | Port | Source |
+|---|---:|---|
+| HTTP | 80 | 0.0.0.0/0 |
+
+For a public website, HTTP access may be public. Use HTTPS for production applications.
+
+### Step 7: Open Website
+
+Copy your EC2 public IP.
+
+Open:
+
+`http://<PUBLIC-IP>`
+
+You should see the NGINX welcome page.
+
+### Step 8: Create Your Own Website
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Add:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS DevOps Training</title>
+</head>
+<body>
+    <h1>Welcome to AWS & DevOps Training</h1>
+    <h2>NGINX Web Server Successfully Deployed!</h2>
+    <p>Learning AWS with Hands-On Practice.</p>
+</body>
+</html>
+```
+
+Save the file.
+
+Restart NGINX:
+
+```bash
+sudo systemctl restart nginx
+```
+
+Refresh the browser.
+
+---
+
+## 4.3 What is Apache HTTP Server?
+
+Apache HTTP Server is an open-source web server used to host websites and web applications.
+
+It is commonly known as HTTPD.
+
+### Practical: Install HTTPD
+
+For Amazon Linux:
+
+**Step 1: Update Packages**
+
+```bash
+sudo yum update -y
+```
+
+**Step 2: Install HTTPD**
+
+```bash
+sudo yum install httpd -y
+```
+
+**Step 3: Start HTTPD**
+
+```bash
+sudo systemctl start httpd
+```
+
+**Step 4: Enable HTTPD**
+
+```bash
+sudo systemctl enable httpd
+```
+
+**Step 5: Verify Status**
+
+```bash
+sudo systemctl status httpd
+```
+
+**Step 6: Configure Security Group**
+
+Allow HTTP on port 80.
+
+**Step 7: Create Website**
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Add your HTML content.
+
+**Step 8: Restart HTTPD**
+
+```bash
+sudo systemctl restart httpd
+```
+
+Open the public IP address in the browser.
+
+### NGINX vs Apache
+
+| Feature | NGINX | Apache |
+|---|---|---|
+| Type | Web server and reverse proxy | Web server |
+| Architecture | Event-driven | Process/thread-based |
+| Common Use | Reverse proxy, static content | Dynamic and static hosting |
+| Configuration | nginx.conf | httpd.conf |
+
+### Student Practical
+
+- Install NGINX.
+- Host a custom HTML page.
+- Install Apache on a separate compatible instance.
+- Compare both web servers.
+- Check service status.
+- Troubleshoot port 80 connectivity.
+
+---
+
+# MODULE 05: AMAZON EC2 – COMPREHENSIVE GUIDE
+
+## 5.1 EC2 Dashboard Overview
+
+Important EC2 Dashboard components:
+
+1. Instances.
+2. Instance Types.
+3. Launch Templates.
+4. AMIs.
+5. EBS Volumes.
+6. Snapshots.
+7. Security Groups.
+8. Key Pairs.
+9. Elastic IPs.
+10. Network Interfaces.
+
+## 5.2 EC2 Instance Types
+
+EC2 provides different instance families for different workloads.
+
+### 1. General Purpose
+
+Balanced CPU, memory and networking.
+
+Examples:
+
+- T3
+- T4g
+- M6i
+- M7g
+
+Use cases:
+
+- Web servers.
+- Development environments.
+- Small application servers.
+
+### 2. Compute Optimized
+
+Designed for compute-intensive applications.
+
+Examples:
+
+- C5
+- C6i
+- C7g
+
+Use cases:
+
+- Batch processing.
+- High-performance web servers.
+- Scientific computing.
+
+### 3. Memory Optimized
+
+Designed for memory-intensive workloads.
+
+Examples:
+
+- R5
+- R6i
+- X2
+
+Use cases:
+
+- Databases.
+- In-memory caching.
+- Real-time analytics.
+
+### 4. Storage Optimized
+
+Designed for high storage performance.
+
+Examples:
+
+- I3
+- D3
+- H1
+
+Use cases:
+
+- Data warehousing.
+- Distributed file systems.
+- Large data processing.
+
+### 5. Accelerated Computing
+
+Uses GPUs or specialized hardware accelerators.
+
+Examples:
+
+- P3
+- G5
+- Inf2
+
+Use cases:
+
+- Machine learning.
+- AI workloads.
+- Graphics processing.
+
+### 6. High Performance Computing
+
+Designed for high-performance scientific and engineering workloads.
+
+Examples:
+
+- Hpc6a
+- Hpc7g
+
+---
+
+## 5.3 EC2 Status Checks
+
+AWS automatically performs status checks to monitor the health of EC2 instances.
+
+### Types of Status Checks
+
+**1. System Status Check**
+
+Checks the underlying AWS infrastructure.
+
+Example:
+
+A physical host or networking infrastructure issue.
+
+**2. Instance Status Check**
+
+Checks the instance operating system and network configuration.
+
+Example:
+
+- Operating system problems.
+- Network configuration problems.
+- Filesystem issues.
+
+### Why Are Status Checks Important?
+
+They help identify infrastructure or instance-level problems.
+
+### CloudWatch Alarms
+
+Amazon CloudWatch can monitor EC2 metrics and status checks.
+
+You can configure alarms to notify administrators when a problem occurs.
+
+---
+
+## 5.4 What is an AMI?
+
+AMI stands for Amazon Machine Image.
+
+An AMI is a template used to launch EC2 instances.
+
+It contains the information required to launch an instance, such as:
+
+- Operating system.
+- Software configuration.
+- Root volume information.
+- Launch permissions.
+
+### Types of AMI
+
+**1. EBS-backed AMI**
+
+Uses an Amazon EBS volume as its root device.
+
+**2. Instance Store-backed AMI**
+
+Uses instance store as its root device.
+
+### Create an AMI
+
+1. Open EC2 Dashboard.
+2. Select an EC2 instance.
+3. Click Actions.
+4. Select Image and Templates.
+5. Click Create Image.
+6. Enter an image name.
+7. Configure the required options.
+8. Click Create Image.
+
+### Why Do We Need AMI?
+
+- Create identical servers.
+- Maintain server configurations.
+- Deploy multiple application instances.
+- Support backup and recovery workflows.
+
+---
+
+## 5.5 What is a Launch Template?
+
+A Launch Template is a reusable configuration for launching EC2 instances.
+
+It stores settings such as:
+
+- AMI ID.
+- Instance type.
+- Key pair.
+- Security Groups.
+- Storage configuration.
+- Network settings.
+- User data.
+
+### Create Launch Template
+
+1. Open EC2 Dashboard.
+2. Select Launch Templates.
+3. Click Create Launch Template.
+4. Enter template name.
+5. Select AMI.
+6. Select instance type.
+7. Configure Security Group.
+8. Select key pair.
+9. Configure storage.
+10. Create the template.
+
+### Benefits
+
+- Consistent EC2 deployment.
+- Faster instance creation.
+- Reusable configurations.
+- Integration with Auto Scaling Groups.
+
+---
+
+## 5.6 EC2 Purchasing Options
+
+### 1. On-Demand Instances
+
+- Pay for the computing capacity used.
+- No long-term commitment.
+- Suitable for unpredictable workloads.
+- Useful for testing and development.
+
+**Example:** Launching an EC2 instance for a short-term project.
+
+### 2. Reserved Instances
+
+- Commit to a one-year or three-year term.
+- Can provide discounts compared with On-Demand pricing.
+- Suitable for predictable, steady workloads.
+
+Payment options include:
+
+- No Upfront.
+- Partial Upfront.
+- All Upfront.
+
+### 3. Spot Instances
+
+Spot Instances use spare EC2 capacity at discounted rates.
+
+Important points:
+
+- Can be interrupted by AWS.
+- Suitable for fault-tolerant workloads.
+- Can reduce computing costs.
+
+Use cases:
+
+- Batch processing.
+- Data analysis.
+- Image processing.
+- Distributed workloads.
+
+### 4. Dedicated Hosts
+
+A Dedicated Host is a physical server dedicated to one customer.
+
+Use cases:
+
+- License requirements.
+- Regulatory requirements.
+- Host-level visibility and control.
+
+### 5. Dedicated Instances
+
+Dedicated Instances run on hardware dedicated to a single customer.
+
+They provide hardware isolation but do not offer the same host-level visibility and control as Dedicated Hosts.
+
+### 6. Capacity Reservations
+
+Capacity Reservations reserve EC2 capacity in a specific Availability Zone.
+
+Important points:
+
+- Reserve capacity when needed.
+- No long-term commitment.
+- Charged at applicable On-Demand rates.
+- Do not automatically provide a pricing discount.
+
+### 7. Savings Plans
+
+Savings Plans provide lower prices in exchange for a commitment to a consistent amount of usage over one or three years.
+
+### Comparison Table
+
+| Option | Main Purpose |
+|---|---|
+| On-Demand | Flexible usage |
+| Reserved Instances | Long-term usage discounts |
+| Spot | Low-cost spare capacity |
+| Dedicated Hosts | Dedicated physical servers |
+| Dedicated Instances | Dedicated hardware |
+| Capacity Reservations | Reserve EC2 capacity |
+| Savings Plans | Usage commitment for savings |
+
+### Simple Real-Life Example
+
+Imagine booking a hotel:
+
+- On-Demand: Book whenever you want.
+- Reserved: Book in advance for a longer stay.
+- Spot: Get a discounted room that may be taken back.
+- Dedicated Host: Book the entire building.
+- Capacity Reservation: Reserve a room and pay even if you do not use it.
+
+---
+
+# MODULE 06: EBS VOLUMES AND STORAGE MANAGEMENT
+
+## 6.1 What is Amazon EBS?
+
+EBS stands for Elastic Block Store.
+
+Amazon EBS provides persistent block-level storage for EC2 instances.
+
+### Simple Explanation
+
+Think of EBS as an additional hard disk that you can attach to an EC2 instance.
+
+### Why Do We Need EBS?
+
+- Store application files.
+- Store database data.
+- Store operating system files.
+- Store logs.
+- Expand storage capacity.
+
+### EBS Volume Types
+
+**1. General Purpose SSD**
+
+Examples: gp3 and gp2.
+
+Suitable for:
+
+- Boot volumes.
+- Development environments.
+- General applications.
+
+**2. Provisioned IOPS SSD**
+
+Examples: io1 and io2.
+
+Suitable for:
+
+- High-performance databases.
+- I/O-intensive applications.
+
+**3. Throughput Optimized HDD**
+
+Example: st1.
+
+Suitable for:
+
+- Big data.
+- Log processing.
+- Sequential workloads.
+
+**4. Cold HDD**
+
+Example: sc1.
+
+Suitable for:
+
+- Infrequently accessed data.
+- Lower-cost storage workloads.
+
+**Note:** Magnetic (standard) is a previous-generation volume type.
+
+---
+
+## 6.2 Attach an EBS Volume to EC2
+
+### Practical Objective
+
+Create an additional EBS volume, attach it to an EC2 instance and mount it.
+
+### Step 1: Open EC2 Dashboard
+
+Navigate to Volumes.
+
+### Step 2: Create Volume
+
+Click Create Volume.
+
+Select:
+
+- Volume Type: gp3.
+- Size: 5 GiB (example).
+- Availability Zone: Same AZ as the EC2 instance.
+
+Click Create Volume.
+
+### Step 3: Attach Volume
+
+1. Select the newly created volume.
+2. Click Actions.
+3. Select Attach Volume.
+4. Select the EC2 instance.
+5. Click Attach Volume.
+
+### Step 4: Connect to EC2
+
+Connect using SSH.
+
+### Step 5: Check Attached Disk
+
+```bash
+lsblk
+```
+
+Identify the new device.
+
+Example: `/dev/xvdf`
+
+**Important:** Device names can differ. Always verify the actual device before formatting.
+
+### Step 6: Create Partition
+
+```bash
+sudo fdisk /dev/xvdf
+```
+
+Inside fdisk:
+
+- Press `n`.
+- Press `p` if prompted for a primary partition.
+- Accept the default partition number and sector values.
+- Press `w`.
+
+### Step 7: Check Partition
+
+```bash
+lsblk
+```
+
+Example partition:
+
+`/dev/xvdf1`
+
+### Step 8: Format Partition
+
+```bash
+sudo mkfs.ext4 /dev/xvdf1
+```
+
+**Warning:** Formatting destroys existing filesystem data. Confirm that the selected volume is new or safe to format.
+
+### Step 9: Create Mount Directory
+
+```bash
+sudo mkdir -p /mnt/ebs-volume
+```
+
+### Step 10: Mount Volume
+
+```bash
+sudo mount /dev/xvdf1 /mnt/ebs-volume
+```
+
+### Step 11: Verify
+
+```bash
+df -h
+```
+
+### Step 12: Test Storage
+
+```bash
+sudo touch /mnt/ebs-volume/test.txt
+ls -l /mnt/ebs-volume
+```
+
+### Make Mount Persistent
+
+Find UUID:
+
+```bash
+sudo blkid
+```
+
+Open fstab:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Add:
+
+```bash
+UUID=<YOUR-UUID> /mnt/ebs-volume ext4 defaults,nofail 0 2
+```
+
+Test:
+
+```bash
+sudo mount -a
+```
+
+---
+
+# MODULE 07: EBS SNAPSHOTS AND BACKUP AUTOMATION
+
+## 7.1 What is an EBS Snapshot?
+
+An EBS Snapshot is a point-in-time backup of an EBS volume.
+
+It is used to protect data and support recovery.
+
+### Why Do We Need Snapshots?
+
+- Data protection.
+- Disaster recovery.
+- Backup management.
+- Creating new volumes from backups.
+- Maintaining recovery points.
+
+### EBS Volume vs Snapshot
+
+| EBS Volume | EBS Snapshot |
+|---|---|
+| Block storage | Point-in-time backup |
+| Attached to EC2 | Stored and managed by AWS |
+| Used for active storage | Used for backup and recovery |
+| Can be mounted | Can be used to create volumes |
+
+## 7.2 Create an EBS Snapshot
+
+### Steps
+
+1. Open EC2 Dashboard.
+2. Select Volumes.
+3. Select the EBS volume.
+4. Click Actions.
+5. Select Create Snapshot.
+6. Enter a description.
+7. Click Create Snapshot.
+
+### Verify Snapshot
+
+Open Snapshots in the EC2 Dashboard.
+
+Check the snapshot status.
+
+### 7.3 Automate Snapshots Using Data Lifecycle Manager
+
+Amazon Data Lifecycle Manager (DLM) can automate EBS snapshot creation and retention.
+
+### Steps
+
+1. Open Amazon Data Lifecycle Manager.
+2. Click Create Lifecycle Policy.
+3. Select EBS Snapshot Policy.
+4. Select the required resource type.
+5. Configure target resource tags.
+6. Define the snapshot schedule.
+7. Configure retention rules.
+8. Review the policy.
+9. Create the policy.
+
+### Example Configuration
+
+Tag:
+
+```text
+Environment = Production
+```
+
+Schedule:
+
+```text
+Frequency = Daily
+Retention = 7 Days
+```
+
+### Student Practical
+
+- Create an EBS volume.
+- Attach it to EC2.
+- Create a file.
+- Create a snapshot.
+- Verify the snapshot.
+- Explore DLM automation.
+
+---
+
+# MODULE 08: INTRODUCTION TO NFS
+
+## 8.1 What is NFS?
+
+NFS stands for Network File System.
+
+It is a network protocol that allows multiple computers to share files over a network.
+
+### Simple Explanation
+
+Imagine an office where all employees use one common filing cabinet.
+
+Instead of maintaining separate copies of every file, employees access the same shared storage.
+
+NFS works in a similar way.
+
+### Main Components
+
+**1. NFS Server**
+
+The server that stores and shares files.
+
+**2. NFS Client**
+
+The machine that connects to the NFS server and accesses shared files.
+
+### How Does NFS Work?
+
+1. An NFS server shares a directory.
+2. An NFS client connects to the server.
+3. The client mounts the shared directory.
+4. The client accesses files through the mounted directory.
+
+### Key Features
+
+- Centralized storage.
+- Shared file access.
+- Easy collaboration.
+- Multiple client support.
+- Network-based file sharing.
+
+### Default Port
+
+NFS commonly uses TCP port 2049.
+
+### Why Do We Need NFS?
+
+Without NFS, multiple servers may need separate copies of the same files.
+
+With NFS, multiple servers can access shared storage through the network.
+
+### Real-Time Use Cases
+
+- Shared website files.
+- Application storage.
+- Centralized file management.
+- Shared development directories.
+- Common storage for multiple servers.
+
+---
+
+## 8.2 NFS Versions
+
+| Version | Description |
+|---|---|
+| NFSv2 | Older version |
+| NFSv3 | Supports larger files and improved functionality |
+| NFSv4 | Stateful protocol with improved security and file locking |
+| NFSv4.1 | Adds sessions and parallel NFS capabilities |
+
+Amazon EFS supports NFSv4.0 and NFSv4.1.
+
+---
+
+## 8.3 NFS in AWS – Amazon EFS
+
+EFS stands for Elastic File System.
+
+Amazon EFS is a fully managed, elastic file storage service provided by AWS.
+
+It uses the NFS protocol.
+
+### Important Features
+
+- Shared file storage.
+- Automatically grows and shrinks as data changes.
+- Multiple EC2 instances can access the same file system.
+- Supports access across multiple AZs within a Region.
+- Supports encryption at rest and in transit.
+
+### Is NFS Region-Specific or AZ-Specific?
+
+**NFS Protocol:**
+
+NFS is not inherently tied to an AWS Region or AZ. It depends on network connectivity and server configuration.
+
+**Amazon EFS:**
+
+- EFS is a Regional service.
+- It can be accessed from multiple AZs within its Region.
+- It uses mount targets to provide network access.
+- It supports Regional and One Zone storage classes.
+
+### NFS vs EFS
+
+| NFS | Amazon EFS |
+|---|---|
+| File-sharing protocol | Managed file storage service |
+| Can run on different infrastructures | AWS service |
+| Requires server management in self-managed deployments | AWS manages the underlying infrastructure |
+| Uses network connectivity | Uses NFS to connect to EFS |
+
+---
+
+# MODULE 09: PRACTICAL – CREATE AND MOUNT AMAZON EFS
+
+## 9.1 Practical Objective
+
+Create an Amazon EFS file system and mount it on an Ubuntu EC2 instance using NFS.
+
+### Step 1: Create EFS
+
+1. Open AWS Management Console.
+2. Search for EFS.
+3. Click Create File System.
+4. Enter the name.
+
+Example:
+
+```text
+my-efs
+```
+
+5. Select the required VPC.
+6. Configure mount targets.
+7. Select the appropriate Security Group.
+8. Enable encryption.
+9. Click Create.
+
+### Step 2: Configure EFS Security Group
+
+Allow inbound traffic:
+
+| Type | Protocol | Port | Source |
+|---|---|---:|---|
+| NFS | TCP | 2049 | EC2 Security Group |
+
+**Important:** Allow traffic from the EC2 instance's Security Group, rather than opening NFS to the entire internet.
+
+### Step 3: Connect to Ubuntu EC2
+
+Connect using SSH.
+
+### Step 4: Update Packages
+
+```bash
+sudo apt update
+```
+
+### Step 5: Install NFS Utilities
+
+```bash
+sudo apt install -y nfs-common
+```
+
+### Step 6: Create Mount Directory
+
+```bash
+sudo mkdir -p /mnt/efs
+```
+
+### Step 7: Get EFS File System ID
+
+Open the EFS Dashboard.
+
+Copy your File System ID.
+
+Example:
+
+```text
+fs-12345678
+```
+
+### Step 8: Mount EFS
+
+Replace the example ID and Region with your actual values.
+
+```bash
+sudo mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs
+```
+
+### Step 9: Verify Mount
+
+```bash
+df -h
+```
+
+Also run:
+
+```bash
+mount | grep efs
+```
+
+### Step 10: Create a Test File
+
+```bash
+sudo touch /mnt/efs/test.txt
+```
+
+Verify:
+
+```bash
+ls -l /mnt/efs
+```
+
+### Step 11: Test Shared Storage
+
+If another EC2 instance is configured to access the same EFS file system, mount EFS on that instance and check whether `test.txt` is visible.
+
+This demonstrates shared storage.
+
+### Step 12: Configure Persistent Mount
+
+Open:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Add:
+
+```text
+fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs nfs4 defaults,_netdev,nofail 0 0
+```
+
+Replace the example ID and Region.
+
+Save the file.
+
+Test:
+
+```bash
+sudo mount -a
+```
+
+### Step 13: Verify
+
+```bash
+df -h
+```
+
+### Important Troubleshooting Points
+
+If EFS mounting fails, check:
+
+1. Is the EFS file system available?
+2. Is the EFS mount target configured?
+3. Is the EC2 instance in the correct VPC?
+4. Is the EFS Security Group allowing TCP 2049?
+5. Is the EC2 Security Group correct?
+6. Are NFS utilities installed?
+7. Is the EFS DNS name correct?
+8. Is network connectivity available?
+
+---
+
+# MODULE 10: AWS HANDS-ON PRACTICAL CHECKLIST
+
+Students should complete the following practicals.
+
+## AWS Fundamentals
+
+- [ ] Understand Virtualization.
+- [ ] Understand Cloud Computing.
+- [ ] Understand IaaS, PaaS and SaaS.
+- [ ] Create an AWS Account.
+- [ ] Explore AWS Management Console.
+- [ ] Understand Regions and AZs.
+
+## EC2 and Networking
+
+- [ ] Launch Ubuntu EC2 Instance.
+- [ ] Launch Windows EC2 Instance.
+- [ ] Create Key Pair.
+- [ ] Configure Security Groups.
+- [ ] Connect Linux using SSH.
+- [ ] Connect Windows using RDP.
+- [ ] Understand common network ports.
+
+## Web Server Deployment
+
+- [ ] Install NGINX.
+- [ ] Deploy a custom HTML website.
+- [ ] Install Apache HTTPD.
+- [ ] Check service status.
+- [ ] Troubleshoot website connectivity.
+
+## EC2 Management
+
+- [ ] Understand EC2 Instance Types.
+- [ ] Understand AMIs.
+- [ ] Create an AMI.
+- [ ] Create a Launch Template.
+- [ ] Understand EC2 Purchasing Options.
+- [ ] Understand CloudWatch status check monitoring.
+
+## Storage Management
+
+- [ ] Create EBS Volume.
+- [ ] Attach EBS Volume.
+- [ ] Create Partition.
+- [ ] Format and Mount Volume.
+- [ ] Configure Persistent Mount.
+- [ ] Create EBS Snapshot.
+- [ ] Explore Snapshot Lifecycle Policies.
+
+## File Sharing
+
+- [ ] Understand NFS.
+- [ ] Understand NFS Versions.
+- [ ] Create Amazon EFS.
+- [ ] Install NFS Utilities.
+- [ ] Mount EFS on Ubuntu EC2.
+- [ ] Test Shared Storage.
+- [ ] Configure Persistent EFS Mount.
+
+---
+
+# MODULE 11: IMPORTANT LINUX COMMANDS REFERENCE
+
+## 11.1 Basic Linux Commands
+
+```bash
+# Display current username
+whoami
+
+# Display hostname
+hostname
+
+# Display current working directory
+pwd
+
+# List files
+ls
+
+# List files with details
+ls -l
+
+# List hidden files
+ls -la
+
+# Create directory
+mkdir test
+
+# Create file
+touch file.txt
+
+# Read file
+cat file.txt
+
+# Edit file
+nano file.txt
+
+# Copy file
+cp file.txt backup.txt
+
+# Move or rename file
+mv file.txt newfile.txt
+
+# Remove file
+rm file.txt
+
+# Remove directory
+rmdir test
+```
+
+## 11.2 System Monitoring Commands
+
+```bash
+# Check uptime
+uptime
+
+# Check memory usage
+free -h
+
+# Check disk usage
+df -h
+
+# Check block devices
+lsblk
+
+# Check CPU and processes
+top
+
+# List running processes
+ps aux
+
+# Check IP address
+ip addr
+
+# Display hostname and IP
+hostname -I
+
+# Check current date and time
+date
+```
+
+## 11.3 User Management Commands
+
+```bash
+# Create user
+sudo useradd username
+
+# Create user with home directory
+sudo useradd -m username
+
+# Set user password
+sudo passwd username
+
+# Switch user
+su - username
+
+# Check current user
+whoami
+
+# Display user information
+id username
+
+# Display logged-in users
+who
+
+# Delete user
+sudo userdel username
+
+# Delete user and home directory
+sudo userdel -r username
+```
+
+## 11.4 File Permission Commands
+
+```bash
+# Display file permissions
+ls -l
+
+# Give read, write and execute permissions
+chmod 755 file.sh
+
+# Give read and write permissions
+chmod 644 file.txt
+
+# Change file ownership
+sudo chown ubuntu:ubuntu file.txt
+
+# Change directory ownership
+sudo chown -R ubuntu:ubuntu /var/www/html
+```
+
+## 11.5 Package Management Commands – Ubuntu
+
+```bash
+# Update package list
+sudo apt update
+
+# Upgrade installed packages
+sudo apt upgrade -y
+
+# Install a package
+sudo apt install nginx -y
+
+# Remove a package
+sudo apt remove nginx -y
+
+# Search for a package
+apt search nginx
+```
+
+## 11.6 Service Management Commands
+
+```bash
+# Check service status
+sudo systemctl status nginx
+
+# Start service
+sudo systemctl start nginx
+
+# Stop service
+sudo systemctl stop nginx
+
+# Restart service
+sudo systemctl restart nginx
+
+# Enable service at startup
+sudo systemctl enable nginx
+
+# Disable service at startup
+sudo systemctl disable nginx
+```
+
+## 11.7 Storage Commands
+
+```bash
+# List block devices
+lsblk
+
+# Check disk usage
+df -h
+
+# Display disk UUID
+sudo blkid
+
+# Create directory
+sudo mkdir -p /mnt/ebs-volume
+
+# Mount EBS partition
+sudo mount /dev/xvdf1 /mnt/ebs-volume
+
+# Check mounted filesystems
+mount
+
+# Unmount volume
+sudo umount /mnt/ebs-volume
+```
+
+## 11.8 EFS and NFS Commands
+
+```bash
+# Update package list
+sudo apt update
+
+# Install NFS utilities
+sudo apt install -y nfs-common
+
+# Create EFS directory
+sudo mkdir -p /mnt/efs
+
+# Mount EFS
+sudo mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs
+
+# Check mounted storage
+df -h
+
+# Verify EFS mount
+mount | grep efs
+
+# Reload systemd configuration
+sudo systemctl daemon-reload
+
+# Mount all configured filesystems
+sudo mount -a
+```
+
+**Note:** Replace example device names, usernames, IP addresses, EFS IDs and Regions with your actual environment values.
+
+---
+
+# MODULE 12: INTERVIEW QUESTIONS AND STUDENT PRACTICE
+
+## Cloud Computing
+
+1. What is Cloud Computing?
+2. What is Virtualization?
+3. What is a Hypervisor?
+4. What is the difference between Type 1 and Type 2 Hypervisors?
+5. What are IaaS, PaaS and SaaS?
+6. What is the difference between AWS and Azure?
+
+## AWS Fundamentals
+
+1. What is AWS?
+2. What is an AWS Region?
+3. What is an Availability Zone?
+4. What is the difference between a Region and an AZ?
+5. What is the AWS Management Console?
+6. What is IAM?
+
+## EC2
+
+1. What is EC2?
+2. What is an AMI?
+3. What are EC2 Instance Types?
+4. What is a Key Pair?
+5. What is a Security Group?
+6. What is the difference between Public IP and Private IP?
+7. What are EC2 Status Checks?
+8. What is a Launch Template?
+9. What are EC2 Purchasing Options?
+
+## Networking
+
+1. What is SSH?
+2. What is RDP?
+3. What is the default SSH port?
+4. What is the default RDP port?
+5. What is HTTP?
+6. What is HTTPS?
+7. What is the difference between inbound and outbound rules?
+
+## Storage
+
+1. What is EBS?
+2. What are EBS Volume Types?
+3. What is an EBS Snapshot?
+4. What is the difference between EBS and EFS?
+5. What is NFS?
+6. What is the default NFS port?
+7. How do you mount an EBS volume?
+8. How do you mount EFS on an EC2 instance?
+
+## Web Servers
+
+1. What is a Web Server?
+2. What is NGINX?
+3. What is Apache HTTP Server?
+4. What is the difference between NGINX and Apache?
+5. How do you install NGINX on Ubuntu?
+6. How do you check the status of NGINX?
+
+---
+
+# FINAL LEARNING OUTCOMES
+
+After completing these modules and practical exercises, students should be able to:
+
+1. Understand Virtualization and Cloud Computing.
+2. Explain IaaS, PaaS and SaaS.
+3. Navigate the AWS Management Console.
+4. Understand AWS Regions and Availability Zones.
+5. Launch and manage EC2 instances.
+6. Configure Security Groups.
+7. Connect to Linux servers using SSH.
+8. Connect to Windows servers using RDP.
+9. Deploy websites using NGINX and Apache.
+10. Understand EC2 Instance Types and Purchasing Options.
+11. Create AMIs and Launch Templates.
+12. Attach, partition and mount EBS volumes.
+13. Create EBS Snapshots and understand backup automation.
+14. Understand NFS and shared storage.
+15. Create and mount Amazon EFS.
+16. Execute basic Linux administration commands.
+17. Troubleshoot common AWS infrastructure issues.
+
+---
+
+# LEARNING RESOURCES
+
+| Resource | Link |
+|---|---|
+| AWS Documentation | https://docs.aws.amazon.com/ |
+| AWS EC2 | https://docs.aws.amazon.com/ec2/ |
+| AWS EBS | https://docs.aws.amazon.com/ebs/ |
+| AWS EFS | https://docs.aws.amazon.com/efs/ |
+| AWS IAM | https://docs.aws.amazon.com/iam/ |
+| AWS Free Tier | https://aws.amazon.com/free/ |
+| Linux Documentation | https://www.kernel.org/doc/ |
+| NGINX Documentation | https://nginx.org/en/docs/ |
+| Apache Documentation | https://httpd.apache.org/docs/ |
+| OpenSSH Documentation | https://www.openssh.com/ |
+
+---
+
+## IMPORTANT INSTRUCTIONS FOR STUDENTS
+
+1. Attend every practical session.
+2. Practice commands independently.
+3. Maintain your own notes.
+4. Understand commands before executing them.
+5. Do not copy commands blindly into production systems.
+6. Never share AWS credentials or private keys.
+7. Monitor AWS billing during practical sessions.
+8. Delete unused resources after completing exercises.
+9. Revise interview questions regularly.
+10. Complete all practical assignments.
+
+---
+
+**Author:** Arpit Mankar
+
+**Training Domain:** AWS Cloud Computing | Linux Administration | DevOps
+
+**Learning Methodology:** Theory + Practical + Real-Time Examples + Assignments + Interview Preparation
+
+**Repository Purpose:** Beginner-Friendly AWS and DevOps Learning Resources.
